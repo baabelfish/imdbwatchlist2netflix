@@ -17,8 +17,8 @@ sudo install luarocks penlight]])
 end
 
 local function nextguide_url(phrase, limit)
-    limit = limit or 21
-    return 'http://api-guide.nextguide.tv/api/faceted_search.json?inc_images=1&limit=' .. limit .. '&src_ids=n,a,h,i&headend_id=DITV807&phrase=' .. phrase
+    limit = limit or 1
+    return 'http://api-guide.nextguide.tv/api/faceted_search.json?inc_images=0&limit=' .. limit .. '&src_ids=n,a,h,i&phrase=' .. phrase
 end
 
 local function escape(str)
@@ -73,7 +73,7 @@ while true do
         local movie = data.movies[1]
         local id = string.match(movie.netflix_id or '', 'http://api.netflix.com/catalog/titles/movies/(%d+)')
         if id then
-            io.write(' ' .. movie.t .. '\n')
+            io.write(': ' .. movie.t .. '\n')
             print('')
             print(movie.s)
             print('')
