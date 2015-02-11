@@ -73,7 +73,7 @@ while true do
         local movie = data.movies[1]
         local id = string.match(movie.netflix_id or '', 'http://api.netflix.com/catalog/titles/movies/(%d+)')
         if id then
-            io.write(': ' .. movie.t .. '\n')
+            io.write(' ' .. movie.t .. ' (' .. movie.y .. ')\n')
             print('')
             print(movie.s)
             print('')
